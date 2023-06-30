@@ -1,19 +1,11 @@
 'use strict';
 
-// console.log(document.querySelector('.message').textContent);
-
-// document.querySelector('.number').textContent = 13;
-// document.querySelector('.score').textContent = 10;
-
-// document.querySelector('.guess').value = 23;
-// console.log(document.querySelector('.guess').value);
 const secretNumber = Math.trunc(Math.random() * 20 + 1);
 
 let count = 20;
 let highscore = 0;
 document.querySelector('.check').addEventListener('click', () => {
   const guess = document.querySelector('.guess').value;
-  console.log(secretNumber);
   /* SI ACIERTA EL NUMERO SECRETO - TODO: REINICIAR MARCADOR LUEGO DE ACERTAR Y DESHABILITAR EL BOTON DE CHECK */
   if (secretNumber === +guess) {
     document.querySelector('.message').textContent = '🎉 Correct!'; // MENSAJE CAMBIA A "CORRECT"
