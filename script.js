@@ -31,7 +31,6 @@ document.querySelector('.check').addEventListener('click', () => {
     document.querySelector('.message').textContent = '❌ Try again!'; // MUESTRA MENSAJE DE INTENTAR DE NUEVO
   }
   localStorage.setItem('highscore', highscore);
-  console.log(highscore);
 });
 
 document.querySelector('.again').addEventListener('click', () => {
