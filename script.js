@@ -1,9 +1,10 @@
 'use strict';
 
-const secretNumber = Math.trunc(Math.random() * 20 + 1);
+let secretNumber = Math.trunc(Math.random() * 20 + 1);
 
 let count = 20;
-let highscore = 0;
+let highscore = localStorage.getItem('highscore');
+document.querySelector('.highscore').textContent = highscore;
 document.querySelector('.check').addEventListener('click', () => {
   const guess = document.querySelector('.guess').value;
   /* SI ACIERTA EL NUMERO SECRETO - TODO: REINICIAR MARCADOR LUEGO DE ACERTAR Y DESHABILITAR EL BOTON DE CHECK */
@@ -29,4 +30,16 @@ document.querySelector('.check').addEventListener('click', () => {
     document.querySelector('.score').textContent = count;
     document.querySelector('.message').textContent = '❌ Try again!'; // MUESTRA MENSAJE DE INTENTAR DE NUEVO
   }
+  localStorage.setItem('highscore', highscore);
+  console.log(highscore);
+});
+
+document.querySelector('.again').addEventListener('click', () => {
+  secretNumber = Math.trunc(Math.random() * 20 + 1);
+  count = 20;
+  document.querySelector('.guess').value = null;
+  document.querySelector('.number').textContent = '?'; // REVELA NUMERO SECRETO
+  document.querySelector('.score').textContent = count;
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.message').textContent = 'Start guessing...';
 });
